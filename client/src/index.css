@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #0f172a;
+  /* Slate 900 */
+  --color-accent: #00f7ff;
+  --color-secondary: #1e293b;
+  /* Slate 800 */
+
+  --font-sans: 'Inter', sans-serif;
+}
+
+/* Custom Utilities / Base Styles */
+@layer base {
+  body {
+    background-color: #f8fafc;
+    /* Slate 50 */
+    color: #1e293b;
+    /* Slate 800 */
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  :root.dark body {
+    background-color: var(--color-primary);
+    color: #f1f5f9;
+    /* Slate 100 */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+}
+
+@utility glass {
+  @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-lg border-b border-white/20 dark:border-slate-700/30;
+}
+
+@utility text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600;
+}
