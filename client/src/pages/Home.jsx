@@ -4,16 +4,18 @@ import { motion } from 'framer-motion';
 import { FaArrowRight, FaGithub, FaLinkedin } from 'react-icons/fa';
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard';
+import { mockProjects } from '../data/projects';
 
 const Home = () => {
-    const [featuredProjects, setFeaturedProjects] = useState([]);
+    const [featuredProjects, setFeaturedProjects] = useState(mockProjects.slice(0, 3));
 
     useEffect(() => {
         const fetchProjects = async () => {
             try {
                 const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/projects`);
-                // Get first 3 projects as featured
-                setFeaturedProjects(res.data.slice(0, 3));
+                if (res.data.length > 0) {
+                    setFeaturedProjects(res.data.slice(0, 3));
+                }
             } catch (error) {
                 console.error('Error fetching projects:', error);
             }
@@ -124,18 +126,6 @@ developer.contact();`}
                         {featuredProjects.map((project, index) => (
                             <ProjectCard key={project._id || index} project={project} />
                         ))}
-                        {featuredProjects.length === 0 && (
-                            // Mock cards if no data
-                            Array(3).fill(0).map((_, i) => (
-                                <ProjectCard key={i} project={{
-                                    title: 'Project Placeholder',
-                                    description: 'This is a sample project description to visualize the layout.',
-                                    category: 'Web App',
-                                    techStack: ['React', 'Tailwind'],
-                                    imageUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80'
-                                }} />
-                            ))
-                        )}
                     </div>
 
                     <div className="mt-12 text-center md:hidden">
