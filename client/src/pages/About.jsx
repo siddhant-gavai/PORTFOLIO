@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaBriefcase, FaDownload } from 'react-icons/fa';
+import { FaGraduationCap, FaBriefcase, FaDownload, FaReact, FaNodeJs, FaDatabase, FaCss3Alt, FaJsSquare, FaGitAlt, FaPython, FaServer } from 'react-icons/fa';
 
 const About = () => {
     const skills = [
-        { name: 'React.js', level: 'Advanced' },
-        { name: 'Node.js', level: 'Advanced' },
-        { name: 'MongoDB', level: 'Intermediate' },
-        { name: 'Express.js', level: 'Intermediate' },
-        { name: 'Tailwind CSS', level: 'Advanced' },
-        { name: 'JavaScript (ES6+)', level: 'Advanced' },
-        { name: 'Git & GitHub', level: 'Intermediate' },
-        { name: 'Python', level: 'Basic' },
+        { name: 'React.js', level: 'Advanced', icon: FaReact, color: 'text-cyan-400 bg-cyan-400/10 border-cyan-400/25' },
+        { name: 'Node.js', level: 'Advanced', icon: FaNodeJs, color: 'text-green-500 bg-green-500/10 border-green-500/25' },
+        { name: 'MongoDB', level: 'Intermediate', icon: FaDatabase, color: 'text-emerald-500 bg-emerald-500/10 border-emerald-500/25' },
+        { name: 'Express.js', level: 'Intermediate', icon: FaServer, color: 'text-purple-400 bg-purple-400/10 border-purple-400/25' },
+        { name: 'Tailwind CSS', level: 'Advanced', icon: FaCss3Alt, color: 'text-sky-400 bg-sky-400/10 border-sky-400/25' },
+        { name: 'JavaScript (ES6+)', level: 'Advanced', icon: FaJsSquare, color: 'text-yellow-400 bg-yellow-400/10 border-yellow-400/25' },
+        { name: 'Git & GitHub', level: 'Intermediate', icon: FaGitAlt, color: 'text-orange-500 bg-orange-500/10 border-orange-500/25' },
+        { name: 'Python', level: 'Basic', icon: FaPython, color: 'text-blue-500 bg-blue-500/10 border-blue-500/25' },
     ];
 
     const experience = [
@@ -57,7 +57,7 @@ const About = () => {
                     <a
                         href="/resume.pdf"
                         download
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-primary font-bold rounded-lg hover:bg-opacity-80 transition-all transform hover:scale-105 shadow-lg shadow-accent/20"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-primary font-bold rounded-lg hover:bg-opacity-80 transition-all transform hover:scale-105 shadow-lg shadow-accent/20 cursor-pointer"
                     >
                         <FaDownload /> Download Resume
                     </a>
@@ -69,19 +69,28 @@ const About = () => {
                         Skills & Technologies
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                        {skills.map((skill, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.3, delay: index * 0.1 }}
-                                className="bg-white dark:bg-secondary p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 text-center hover:shadow-md transition-shadow"
-                            >
-                                <p className="font-semibold text-gray-800 dark:text-gray-200">{skill.name}</p>
-                                <span className="text-xs text-gray-500 dark:text-gray-400">{skill.level}</span>
-                            </motion.div>
-                        ))}
+                        {skills.map((skill, index) => {
+                            const IconComponent = skill.icon;
+                            return (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 15 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    whileHover={{ y: -5, scale: 1.03 }}
+                                    viewport={{ once: true }}
+                                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                                    className={`bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-sm flex flex-col items-center gap-3 transition-shadow duration-200 hover:shadow-md hover:border-slate-350 dark:hover:border-slate-650`}
+                                >
+                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center border text-2xl ${skill.color}`}>
+                                        <IconComponent />
+                                    </div>
+                                    <div className="text-center">
+                                        <p className="font-bold text-sm text-slate-800 dark:text-slate-200">{skill.name}</p>
+                                        <span className="text-[10px] uppercase tracking-wider font-semibold text-slate-500 dark:text-slate-400 mt-0.5 block">{skill.level}</span>
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </div>
 
