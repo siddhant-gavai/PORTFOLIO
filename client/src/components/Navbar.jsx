@@ -23,7 +23,7 @@ const Navbar = () => {
     const navLinks = [
         { name: 'Home', path: '/' },
         { name: 'About', path: '/about' },
-        { name: 'Projects', path: '/projects' }, // here we can add the projects 
+        { name: 'Projects', path: '/projects' },
         { name: 'Contact', path: '/contact' },
     ];
 
@@ -32,11 +32,15 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
-                    <div className="flex-shrink-0">
+                    <motion.div 
+                        whileHover={{ scale: 1.05, rotate: -1 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex-shrink-0"
+                    >
                         <Link to="/" className="text-2xl font-bold text-accent tracking-tighter">
                             SG<span className="text-gray-900 dark:text-white">.dev</span>
                         </Link>
-                    </div>
+                    </motion.div>
 
                     {/* Desktop Menu */}
                     <div className="hidden md:block">
