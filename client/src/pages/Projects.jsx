@@ -43,6 +43,36 @@ const Projects = () => {
                 liveLink: 'https://example.com',
                 category: 'Design',
                 imageUrl: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+            },
+            {
+                _id: '4',
+                title: 'SkillSwap',
+                description: 'A peer-to-peer skill exchange platform where users trade skills instead of money. Features JWT auth, skill listings with categories, exchange requests, Google Meet & Calendar integration, a personal dashboard, and a user review system.',
+                techStack: ['React (Vite)', 'Tailwind CSS', 'Lucide React', 'Axios', 'Node.js', 'Express.js', 'MongoDB Atlas', 'Mongoose', 'JWT', 'BCrypt'],
+                githubLink: 'https://github.com/siddhant-gavai/SkillSwap',
+                liveLink: 'https://skill-swap-seven-tau.vercel.app',
+                category: 'Full Stack / MERN',
+                imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+            },
+            {
+                _id: '5',
+                title: 'ListNest',
+                description: 'A full-stack property listing platform for exploring and booking unique accommodations worldwide. Features Passport.js auth, full CRUD for listings, smart search, category filters, Cloudinary image uploads, a review system, and tax toggle.',
+                techStack: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'EJS', 'Passport.js', 'Tailwind CSS', 'Bootstrap 5', 'Multer', 'Cloudinary', 'Joi'],
+                githubLink: 'https://github.com/siddhant-gavai/listnest',
+                liveLink: '',
+                category: 'Full Stack / MEN Stack',
+                imageUrl: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+            },
+            {
+                _id: '6',
+                title: 'My Portfolio (MERN + AI)',
+                description: 'This portfolio website itself — a full-stack MERN app with an AI chatbot powered by OpenAI ("Ask Siddhant AI"), a secure Admin Dashboard to manage projects dynamically, dark/light mode, Framer Motion animations, and a contact form with email notifications via Nodemailer.',
+                techStack: ['React.js (Vite)', 'Tailwind CSS', 'Framer Motion', 'React Icons', 'Axios', 'Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'OpenAI API', 'JWT', 'Nodemailer'],
+                githubLink: 'https://github.com/siddhant-gavai/PORTFOLIO',
+                liveLink: '',
+                category: 'Full Stack / MERN',
+                imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
             }
         ];
 
@@ -90,7 +120,7 @@ const Projects = () => {
         setFilteredProjects(result);
     }, [filter, searchTerm, projects]);
 
-    const categories = ['All', 'Web App', 'Mobile App', 'Design', 'Other'];
+    const categories = ['All', 'Web App', 'Mobile App', 'Design', 'Full Stack / MERN', 'Full Stack / MEN Stack', 'Other'];
 
     return (
         <div className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8">
