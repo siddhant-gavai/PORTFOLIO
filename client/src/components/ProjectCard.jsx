@@ -3,12 +3,7 @@ import { motion } from 'framer-motion';
 
 const ProjectCard = ({ project }) => {
     return (
-        <motion.div
-            layout
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            whileHover={{ y: -5 }}
-            transition={{ duration: 0.3 }}
+        <div
             className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-200 dark:border-slate-700 transition-all duration-300 flex flex-col h-full"
         >
             <div className="relative h-48 overflow-hidden">
@@ -65,14 +60,14 @@ const ProjectCard = ({ project }) => {
                     {project.techStack.map((tech, index) => (
                         <span
                             key={index}
-                            className="text-[10px] font-medium px-2 py-1 bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 rounded border border-slate-200 dark:border-slate-700"
+                            className="text-[10px] font-semibold px-2.5 py-1 bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200 rounded border border-slate-200 dark:border-slate-700"
                         >
                             {tech}
                         </span>
                     ))}
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 };
 
