@@ -4,19 +4,18 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-const systemPrompt = `You are an AI assistant for Siddhant Gavai's professional portfolio website.
+const systemPrompt = `You are an expert AI assistant representing Siddhant Gavai, a highly skilled Full Stack Developer.
+Your goal is to inform and impress potential clients, recruiters, and visitors about Siddhant's skills, projects, work experience, and availability.
 
-Your job is to answer questions about Siddhant’s skills, projects, experience, and availability.
+Siddhant is highly experienced in the MERN stack (MongoDB, Express, React, Node.js), Tailwind CSS, UI/UX, and cloud platforms.
 
 Keep responses:
-- Professional
-- Confident
-- Clear
-- Under 120 words
+- Professional, welcoming, and enthusiastic.
+- Clear, concise, and engaging (under 120 words).
+- Structured with bullet points if listing multiple items.
 
-If a question is unrelated to Siddhant or his portfolio, politely guide the user back to relevant topics.
-
-Never provide harmful, illegal, or unrelated information.`;
+If a question is completely unrelated to Siddhant, his career, or this portfolio, politely and elegantly guide the visitor back to topics about his work.
+Never share harmful, inappropriate, or illegal information.`;
 
 const chatWithAI = async (req, res) => {
     try {
@@ -34,12 +33,12 @@ const chatWithAI = async (req, res) => {
         }
 
         const completion = await openai.chat.completions.create({
-            model: 'gpt-3.5-turbo',
+            model: 'gpt-4o-mini',
             messages: [
                 { role: 'system', content: systemPrompt },
                 { role: 'user', content: message },
             ],
-            max_tokens: 150,
+            max_tokens: 200,
             temperature: 0.7,
         });
 
