@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaBriefcase, FaDownload, FaReact, FaNodeJs, FaDatabase, FaCss3Alt, FaJsSquare, FaGitAlt, FaPython, FaServer } from 'react-icons/fa';
+import { FaGraduationCap, FaBriefcase, FaDownload, FaEye, FaReact, FaNodeJs, FaDatabase, FaCss3Alt, FaJsSquare, FaGitAlt, FaPython, FaServer } from 'react-icons/fa';
 
 const About = () => {
     const skills = [
@@ -54,13 +54,25 @@ const About = () => {
                         I am a passionate Full Stack Developer with a strong foundation in the MERN stack.
                         I love building scalable, user-friendly applications and solving complex problems with code.
                     </p>
-                    <a
-                        href="/resume.pdf"
-                        download
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-primary font-bold rounded-lg hover:bg-opacity-80 transition-all transform hover:scale-105 shadow-lg shadow-accent/20 cursor-pointer"
-                    >
-                        <FaDownload /> Download Resume
-                    </a>
+                    <div className="flex flex-wrap justify-center items-center gap-4">
+                        <a
+                            href="/resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-white/80 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-bold rounded-xl shadow-sm hover:shadow-md dark:hover:shadow-slate-900/50 hover:bg-slate-50 dark:hover:bg-slate-750 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                            aria-label="View Siddhant's Resume in a new tab"
+                        >
+                            <FaEye /> View Resume
+                        </a>
+                        <a
+                            href="/resume.pdf"
+                            download="Siddhant_Gavai_Resume.pdf"
+                            className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-accent text-slate-900 font-bold rounded-xl shadow-lg shadow-accent/15 hover:shadow-xl hover:shadow-accent/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                            aria-label="Download Siddhant's Resume PDF directly"
+                        >
+                            <FaDownload /> Download Resume
+                        </a>
+                    </div>
                 </motion.div>
 
                 {/* Skills Section */}
